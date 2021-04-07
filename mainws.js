@@ -214,7 +214,7 @@ async function onCommand(message, ws) {
         }
         case "shutdown": {
             //only for me :)
-            if(!ws.user || ws.user !== "AlexIsOK") {
+            if(!ws.user || ws.user !== "alexisok") {
                 return ws.send("You must be AlexIsOK to run this command.  Become him and try again.");
             }
             await broadcast("###SERVER### SERVER WILL SHUTDOWN SOON.  PLEASE RECONNECT.");
@@ -227,7 +227,7 @@ async function onCommand(message, ws) {
         }
         case "reload-auth": {
             //reload authentication (admin)
-            if(!ws.user || ws.user !== "AlexIsOK")
+            if(!ws.user || ws.user !== "alexisok")
                 return "bruv";
             auth = require("./auth.json");
             return "ok i guess";
@@ -318,7 +318,7 @@ async function onCommand(message, ws) {
             if(!ws.user)
                 return "This command requires authentication.";
             if(args.length === 1)
-                return "Usage: /mail <send | read>"
+                return "Usage: /mail <send | read | clear>"
             if(!mail[ws.user]) {
                 //make new inbox if the user doesn't have one yet.
                 mail[ws.user] = [];
@@ -365,13 +365,13 @@ async function onCommand(message, ws) {
                 mail[ws.user].forEach(m => {
                     ws.send(m);
                 });
-                
+                return "You can clear your inbox using /mail clear";
             } else if(args[1] === "clear") {
                 mail[ws.user] = [];
                 saveMail();
                 return "Your inbox has been cleared.";
             } else {
-                return "Usage: /mail <send | read>";
+                return "Usage: /mail <send | read | clear>";
             }
             
         }
