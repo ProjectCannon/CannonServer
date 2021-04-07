@@ -1,0 +1,26 @@
+# https://github.com/einaregilsson/build-number
+
+on:
+  push:
+    branches: [ main ]
+#
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate build number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3 # using my own fork to work better for what I need
+        with:
+          token: ${{secrets.github_token}}
+          version: v1.0.0 # this way only the repository owner can upgrade to a new version
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0.0-${{ steps.buildnumber.outputs.build_number }}
+          release_name: Release 1.0.0-${{ steps.buildnumber.outputs.build_number }}
+          draft: false
+          prerelease: false
