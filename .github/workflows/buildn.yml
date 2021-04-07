@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Generate build number
         id: buildnumber
-        uses: AlexIsOK/build-number@v4 # using my own fork to work better for what I need
+        uses: einaregilsson/build-number@v3 # using my own fork to work better for what I need
         with:
           token: ${{secrets.github_token}}
           version: v1.0.0 # this way only the repository owner can upgrade to a new version
