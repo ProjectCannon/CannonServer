@@ -7,6 +7,7 @@
 auth.json
 cert.pem
 key.pem
+mail.json
 
 # npm
 node_modules
