@@ -355,7 +355,7 @@ async function onCommand(message, ws) {
                 //save
                 saveMail();
                 return "Sent!";
-            } else if(args[1] === "read") {
+            } else if(args[1] === "read" || args[1] === "list") {
                 
                 //length of 0 is empty
                 if(mail[ws.user].length === 0)
@@ -366,7 +366,7 @@ async function onCommand(message, ws) {
                     ws.send(m);
                 });
                 
-                //clear it
+            } else if(args[1] === "clear") {
                 mail[ws.user] = [];
                 saveMail();
                 return "Your inbox has been cleared.";
