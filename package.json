@@ -1,0 +1,15 @@
+{
+  "name": "cannonserver",
+  "version": "1.0.0",
+  "description": "server for cannon, https://cannon.alexisok.dev/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "AlexIsOK",
+  "license": "",
+  "dependencies": {
+    "ws": "^7.4.4"
+  }
+}
