@@ -10,6 +10,6 @@
   "author": "AlexIsOK",
   "license": "",
   "dependencies": {
-    "ws": "^7.4.4"
+    "ws": "^7.4.6"
   }
 }
